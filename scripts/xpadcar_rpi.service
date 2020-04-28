@@ -2,7 +2,7 @@
 Description=xcar service
 
 [Service]
-ExecStart=/home/pi/xcar_rpi/scripts/connect_pad_and_run.sh
+ExecStart=/home/pi/xpadcar_rpi/scripts/connect_pad_and_run.sh
 
 [Install]
 WantedBy=multi-user.target
