@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #change permissions of file, so it can be executed
-chmod 766 /home/pi/xpadcar_rpi/scripts/xpadcar_rpi.service
+chmod 766 /home/pi/xpadcar_rpi/scripts/connect_pad_and_run.sh
 
 #copy file with service to proper directory
 cp /home/pi/xpadcar_rpi/scripts/xpadcar_rpi.service /etc/systemd/system/
