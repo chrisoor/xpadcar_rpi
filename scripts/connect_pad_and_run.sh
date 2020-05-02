@@ -5,3 +5,10 @@
 
 echo 1 > /sys/module/bluetooth/parameters/disable_ertm
 
+GAMEPAD_FILE=/etc/input/js0
+if test -e "$GAMEPAD_FILE"; then
+	echo "Gampead should be connected"
+else
+	echo "Gamepad not connected"
+fi
+
