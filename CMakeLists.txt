@@ -4,7 +4,6 @@ project(xpadcar_rpi)
 
 set (SOURCES
 	src/main.cpp
-        src/IGamepadInterface.cpp
 	src/IGamepadInterface.hpp
 	src/GamepadInterfaceSDL2.cpp
 	src/GamepadInterfaceSDL2.hpp
@@ -12,5 +11,8 @@ set (SOURCES
 	src/example.hpp
 )
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIRS})
 
+add_executable(${PROJECT_NAME} ${SOURCES})
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})

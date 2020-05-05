@@ -1,12 +1,19 @@
 #include <iostream>
-#include "example.hpp"
+#include "SDL.h"
+#include "GamepadInterfaceSDL2.hpp"
 
-int main()
+int main(int argc, char* argv[])
 {
 	std::cout<<"Hello, world!"<<std::endl;
+
+    if (SDL_Init(SDL_INIT_GAMECONTROLLER) != 0)
+    {
+        return 1;
+    }
+
+    GamepadInterfaceSDL2 gamepad;
+    std::cout<<"Is any gamepad connected: "<< gamepad.CheckIfGamepadConnected() <<std::endl;
 	
-	example ex;
-	ex.ex1();
-	
+    SDL_Quit();
 	return 0;
 }

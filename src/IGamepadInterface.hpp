@@ -1,11 +1,14 @@
-#ifndef GAMEPADINTERFACE_H
-#define GAMEPADINTERFACE_H
+#ifndef IGAMEPADINTERFACES_H
+#define IGAMEPADINTERFACES_H
 
 
-class GamepadInterface
+class IGamepadInterface
 {
 public:
-    GamepadInterface();
+//    IGamepadInterface();
+    virtual ~IGamepadInterface() {}
+
+    virtual bool CheckIfGamepadConnected() = 0;
 };
 
-#endif // GAMEPADINTERFACE_H
+#endif // IGAMEPADINTERFACES_H
