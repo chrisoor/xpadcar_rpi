@@ -4,8 +4,10 @@ project(xpadcar_rpi)
 
 set (SOURCES
 	src/main.cpp
-        src/gamepadinterface.cpp
-        src/gamepadinterface.hpp
+        src/IGamepadInterface.cpp
+	src/IGamepadInterface.hpp
+	src/GamepadInterfaceSDL2.cpp
+	src/GamepadInterfaceSDL2.hpp
 	src/example.cpp
 	src/example.hpp
 )
