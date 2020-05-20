@@ -11,8 +11,8 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    GamepadInterfaceSDL2 gamepad;
-    std::cout<<"Is any gamepad connected: "<< gamepad.CheckIfGamepadConnected() <<std::endl;
+    xpadcar_rpi::GamepadInterfaceSDL2 gamepad;
+    std::cout<<"Is any gamepad connected: "<< gamepad.IsGamepadConnected() <<std::endl;
 	
     SDL_Quit();
 	return 0;

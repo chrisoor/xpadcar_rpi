@@ -2,14 +2,24 @@
 #define GAMEPADINTERFACESDL2_H
 
 #include "IGamepadInterface.hpp"
+#include "SDL_gamecontroller.h"
+
+namespace xpadcar_rpi
+{
 
 class GamepadInterfaceSDL2 : public IGamepadInterface
 {
 public:
     GamepadInterfaceSDL2();
-    virtual ~GamepadInterfaceSDL2() {}
+    virtual ~GamepadInterfaceSDL2() override = default;
 
-    bool CheckIfGamepadConnected();
+    bool IsGamepadConnected() const override;
+    bool OpenGamepadConnection(const uint8_t gamepadId) override;
+
+private:
+    SDL_GameController *controller = nullptr;
 };
+
+}
 
 #endif // GAMEPADINTERFACESDL2_H
