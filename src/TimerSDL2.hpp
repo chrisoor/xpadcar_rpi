@@ -14,8 +14,6 @@ public:
     bool ResetTimer() override;
 
 private:
-    void UpdateTicks();
-
     uint32_t elapsedTime;
 };
 
