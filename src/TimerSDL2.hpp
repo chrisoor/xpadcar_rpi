@@ -12,6 +12,11 @@ public:
     void SetElapsedTime(uint32_t miliSeconds) override;
     bool HasElapsedTimePassed() override;
     bool ResetTimer() override;
+
+private:
+    void UpdateTicks();
+
+    uint32_t elapsedTime;
 };
 
 }
