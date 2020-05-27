@@ -11,13 +11,13 @@ class GamepadInterfaceSDL2 : public IGamepadInterface
 {
 public:
     GamepadInterfaceSDL2();
-    virtual ~GamepadInterfaceSDL2() override = default;
+    virtual ~GamepadInterfaceSDL2() override;
 
     bool IsGamepadConnected() const override;
     bool OpenGamepadConnection(const uint8_t gamepadId) override;
 
 private:
-    SDL_GameController *controller = nullptr;
+    SDL_GameController *pController;
 };
 
 }
