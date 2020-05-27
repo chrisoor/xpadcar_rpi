@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 
     std::cout<<"Is gamepad opened: "<< gamepad.OpenGamepadConnection(0) <<std::endl;
 
-    SDL_TimerID my_timer_id = SDL_AddTimer(10, tester, nullptr);
+    //SDL_TimerID my_timer_id = SDL_AddTimer(10, tester, nullptr);
 
 	
     SDL_Quit();

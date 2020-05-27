@@ -5,10 +5,11 @@ project(xpadcar_rpi)
 set (SOURCES
 	src/main.cpp
 	src/IGamepadInterface.hpp
-	src/GamepadInterfaceSDL2.cpp
 	src/GamepadInterfaceSDL2.hpp
-	src/example.cpp
-	src/example.hpp
+	src/GamepadInterfaceSDL2.cpp
+	src/ITimer.hpp
+	src/TimerSDL2.hpp
+	src/TimerSDL2.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
