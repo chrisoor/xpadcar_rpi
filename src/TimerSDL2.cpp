@@ -18,4 +18,9 @@ bool TimerSDL2::ResetTimer()
     return false;
 }
 
+void TimerSDL2::Wait(uint32_t milisecondsToWait)
+{
+
+}
+
 }
