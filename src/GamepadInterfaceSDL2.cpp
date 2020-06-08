@@ -13,19 +13,20 @@ GamepadInterfaceSDL2::~GamepadInterfaceSDL2()
     if (pController != nullptr)
     {
         SDL_GameControllerClose(pController);
+        pController = nullptr;
     }
 }
 
 bool GamepadInterfaceSDL2::IsGamepadConnected() const
 {
- bool result = false;
+    bool result = false;
 
- if (SDL_NumJoysticks() > 0)
- {
-     result = true;
- }
+    if (SDL_NumJoysticks() > 0)
+    {
+        result = true;
+    }
 
- return result;
+    return result;
 }
 
 bool GamepadInterfaceSDL2::OpenGamepadConnection(const uint8_t gamepadId)
@@ -42,6 +43,15 @@ bool GamepadInterfaceSDL2::OpenGamepadConnection(const uint8_t gamepadId)
     }
 
     return result;
+}
+
+ButtonsAxisStatus GamepadInterfaceSDL2::GetButtonsAxisStatus()
+{
+    ButtonsAxisStatus buttonsAxis2;
+    SDL_GameControllerUpdate();
+    buttonsAxis2.rightTrigger = static_cast<int32_t>(SDL_GameControllerGetAxis(pController, SDL_CONTROLLER_AXIS_TRIGGERRIGHT));
+
+    return buttonsAxis2;
 }
 
 }

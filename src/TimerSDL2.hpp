@@ -2,6 +2,7 @@
 #define TIMERSDL2_H
 
 #include "ITimer.hpp"
+#include "SDL_timer.h"
 
 namespace xpadcar_rpi
 {
@@ -9,13 +10,15 @@ namespace xpadcar_rpi
 class TimerSDL2 : public ITimer
 {
 public:
-    void SetElapsedTime(uint32_t miliSeconds) override;
+    TimerSDL2();
+    void SetTimeToElapse(uint32_t miliSeconds) override;
     bool HasElapsedTimePassed() override;
-    bool ResetTimer() override;
+    void ResetTimer() override;
     void Wait(uint32_t milisecondsToWait) override;
 
 private:
-    uint32_t elapsedTime;
+    uint32_t timeStamp;
+    uint32_t miliSecondsToElapse;
 };
 
 }

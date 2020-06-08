@@ -15,9 +15,11 @@ public:
 
     bool IsGamepadConnected() const override;
     bool OpenGamepadConnection(const uint8_t gamepadId) override;
+    ButtonsAxisStatus GetButtonsAxisStatus() override;
 
 private:
     SDL_GameController *pController;
+    ButtonsAxisStatus buttonsAxis;
 };
 
 }

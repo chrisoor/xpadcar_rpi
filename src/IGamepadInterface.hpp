@@ -7,18 +7,18 @@ namespace xpadcar_rpi
 
 struct ButtonsAxisStatus
 {
-    uint8_t rightTrigger;
-    uint8_t leftTrigger;
+    int32_t rightTrigger;
+    int32_t leftTrigger;
 
-    uint8_t leftStickUp;
-    uint8_t leftStickDown;
-    uint8_t leftStickRight;
-    uint8_t leftStickLeft;
+    int32_t leftStickUp;
+    int32_t leftStickDown;
+    int32_t leftStickRight;
+    int32_t leftStickLeft;
 
-    uint8_t rightStickUp;
-    uint8_t rightStickDown;
-    uint8_t rightStickRight;
-    uint8_t rightStickLeft;
+    int32_t rightStickUp;
+    int32_t rightStickDown;
+    int32_t rightStickRight;
+    int32_t rightStickLeft;
 
     bool keyA;
     bool keyB;
@@ -57,7 +57,7 @@ public:
 
     virtual bool IsGamepadConnected() const = 0;
     virtual bool OpenGamepadConnection(uint8_t gamepadId) = 0;
-//    virtual
+    virtual ButtonsAxisStatus GetButtonsAxisStatus() = 0;
 };
 
 }
