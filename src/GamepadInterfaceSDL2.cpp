@@ -1,5 +1,6 @@
 #include "GamepadInterfaceSDL2.hpp"
 #include "SDL.h"
+#include "ButtonsAxisStatus.hpp"
 
 namespace xpadcar_rpi
 {
@@ -10,16 +11,12 @@ GamepadInterfaceSDL2::GamepadInterfaceSDL2() : pController(nullptr)
 }
 GamepadInterfaceSDL2::~GamepadInterfaceSDL2()
 {
-    if (pController != nullptr)
-    {
-        SDL_GameControllerClose(pController);
-        pController = nullptr;
-    }
+    CloseConnection();
 }
 
 bool GamepadInterfaceSDL2::IsGamepadConnected() const
 {
-    bool result = false;
+    bool result {false};
 
     if (SDL_NumJoysticks() > 0)
     {
@@ -29,13 +26,13 @@ bool GamepadInterfaceSDL2::IsGamepadConnected() const
     return result;
 }
 
-bool GamepadInterfaceSDL2::OpenGamepadConnection(const uint8_t gamepadId)
+bool GamepadInterfaceSDL2::OpenConnection(const uint8_t deviceId)
 {
-    bool result = false;
+    bool result {false};
 
-    if (SDL_IsGameController(gamepadId) == true)
+    if (SDL_IsGameController(deviceId) == true)
     {
-        pController = SDL_GameControllerOpen(gamepadId);
+        pController = SDL_GameControllerOpen(deviceId);
         if (pController != nullptr)
         {
             result = true;
@@ -45,13 +42,26 @@ bool GamepadInterfaceSDL2::OpenGamepadConnection(const uint8_t gamepadId)
     return result;
 }
 
-ButtonsAxisStatus GamepadInterfaceSDL2::GetButtonsAxisStatus()
+bool GamepadInterfaceSDL2::CloseConnection()
 {
-    ButtonsAxisStatus buttonsAxis2;
-    SDL_GameControllerUpdate();
-    buttonsAxis2.rightTrigger = static_cast<int32_t>(SDL_GameControllerGetAxis(pController, SDL_CONTROLLER_AXIS_TRIGGERRIGHT));
+    bool result {false};
 
-    return buttonsAxis2;
+    if (pController != nullptr)
+    {
+        SDL_GameControllerClose(pController);
+        pController = nullptr;
+        result = true;
+    }
+
+    return result;
 }
 
+bool GamepadInterfaceSDL2::UpdateButtonsAxisStatus(ButtonsAxisStatus* pButtonsAxis)
+{
+    pButtonsAxis->rightTrigger = static_cast<int32_t>(SDL_GameControllerGetAxis(pController, SDL_CONTROLLER_AXIS_TRIGGERRIGHT));
+
+    bool result {true};
+    return result;
 }
+
+} // namespace xpadcar_rpi

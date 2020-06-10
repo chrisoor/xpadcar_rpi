@@ -5,7 +5,7 @@ project(xpadcar_rpi)
 set (SOURCES
 	src/main.cpp
 	src/ButtonsAxisStatus.hpp
-	src/IGamepadInterface.hpp
+	src/InputDeviceInterface.hpp
 	src/GamepadInterfaceSDL2.hpp
 	src/GamepadInterfaceSDL2.cpp
 	src/ITimer.hpp

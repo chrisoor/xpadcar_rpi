@@ -1,6 +1,7 @@
 #include <iostream>
 #include "SDL.h"
 #include "GamepadInterfaceSDL2.hpp"
+#include "ButtonsAxisStatus.hpp"
 #include "TimerSDL2.hpp"
 #include "chrono"
 #include "ctime"
@@ -22,7 +23,7 @@ int main(int argc, char* argv[])
     xpadcar_rpi::GamepadInterfaceSDL2 gamepad;
     std::cout<<"Is any gamepad connected: "<< gamepad.IsGamepadConnected() <<std::endl;
 
-    std::cout<<"Is gamepad opened: "<< gamepad.OpenGamepadConnection(0) <<std::endl;
+    std::cout<<"Is gamepad opened: "<< gamepad.OpenConnection(0) <<std::endl;
 
     //SDL_TimerID my_timer_id = SDL_AddTimer(10, tester, nullptr);
 
@@ -37,7 +38,7 @@ int main(int argc, char* argv[])
         if ( timer.HasElapsedTimePassed() )
         {
             std::cout<<"Time passed! i: "<<i<<std::endl;
-            buttonsAxis = gamepad.GetButtonsAxisStatus();
+            gamepad.UpdateButtonsAxisStatus(&buttonsAxis);
             std::cout<<buttonsAxis.rightTrigger<<std::endl;
             timer.ResetTimer();
             i++;
