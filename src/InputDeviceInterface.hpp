@@ -14,7 +14,7 @@ public:
     virtual ~InputDeviceInterface() = default;
 
     virtual bool OpenConnection(const uint8_t deviceId) = 0;
-    virtual bool CloseConnection() = 0;
+    virtual void CloseConnection() = 0;
     virtual bool UpdateButtonsAxisStatus(ButtonsAxisStatus* pButtonsAxis) = 0;
 };
 
