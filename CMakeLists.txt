@@ -11,6 +11,9 @@ set (SOURCES
 	src/TimerInterface.hpp
 	src/TimerSDL2.hpp
 	src/TimerSDL2.cpp
+	src/PacketSenderInterface.hpp
+	src/PacketShowTerminal.hpp
+	src/PacketShowTerminal.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

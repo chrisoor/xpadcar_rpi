@@ -15,7 +15,7 @@ public:
 
     virtual bool OpenConnection(const uint8_t deviceId) = 0;
     virtual void CloseConnection() = 0;
-    virtual bool UpdateButtonsAxisStatus(ButtonsAxisStatus* pButtonsAxis) = 0;
+    virtual bool UpdateButtonsAxisStatus(ButtonsAxisStatus* const pButtonsAxis) = 0;
 };
 
 } // namespace xpadcar_rpi

@@ -16,7 +16,7 @@ public:
     bool IsGamepadConnected() const;
     bool OpenConnection(const uint8_t deviceId) override;
     void CloseConnection() override;
-    bool UpdateButtonsAxisStatus(ButtonsAxisStatus* pButtonsAxis) override;
+    bool UpdateButtonsAxisStatus(ButtonsAxisStatus* const pButtonsAxis) override;
 
 private:
     SDL_GameController *pController;

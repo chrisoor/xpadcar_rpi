@@ -57,7 +57,7 @@ void GamepadInterfaceSDL2::CloseConnection()
     }
 }
 
-bool GamepadInterfaceSDL2::UpdateButtonsAxisStatus(ButtonsAxisStatus* pButtonsAxis)
+bool GamepadInterfaceSDL2::UpdateButtonsAxisStatus(ButtonsAxisStatus* const pButtonsAxis)
 {
     bool result {false};
     result = SDL_GameControllerGetAttached(pController);
@@ -68,6 +68,7 @@ bool GamepadInterfaceSDL2::UpdateButtonsAxisStatus(ButtonsAxisStatus* pButtonsAx
 
     SDL_GameControllerUpdate();
     pButtonsAxis->rightTrigger = static_cast<int32_t>(SDL_GameControllerGetAxis(pController, SDL_CONTROLLER_AXIS_TRIGGERRIGHT));
+    pButtonsAxis->leftTrigger = static_cast<int32_t>(SDL_GameControllerGetAxis(pController, SDL_CONTROLLER_AXIS_TRIGGERLEFT));
 
     result = SDL_GameControllerGetAttached(pController);
 

@@ -1,6 +1,8 @@
 #ifndef BUTTONSAXISSTATUS_HPP
 #define BUTTONSAXISSTATUS_HPP
 
+#include <cstdint>
+
 namespace xpadcar_rpi
 {
 
