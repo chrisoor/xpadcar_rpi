@@ -1,5 +1,5 @@
-#ifndef INPUTDEVICEINTERFACE_H
-#define INPUTDEVICEINTERFACE_H
+#ifndef INPUTDEVICEINTERFACE_HPP
+#define INPUTDEVICEINTERFACE_HPP
 
 #include <cstdint>
 
@@ -20,4 +20,4 @@ public:
 
 } // namespace xpadcar_rpi
 
-#endif // IGAMEPADINTERFACES_H
+#endif // IGAMEPADINTERFACES_HPP

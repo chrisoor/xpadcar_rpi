@@ -1,5 +1,5 @@
-#ifndef TIMERSDL2_H
-#define TIMERSDL2_H
+#ifndef TIMERSDL2_HPP
+#define TIMERSDL2_HPP
 
 #include "TimerInterface.hpp"
 #include "SDL_timer.h"
@@ -22,4 +22,4 @@ private:
 };
 
 }
-#endif // TIMERSDL2_H
+#endif // TIMERSDL2_HPP

@@ -1,5 +1,5 @@
-#ifndef TIMERINTERFACE_H
-#define TIMERINTERFACE_H
+#ifndef TIMERINTERFACE_HPP
+#define TIMERINTERFACE_HPP
 
 #include <cstdint>
 namespace xpadcar_rpi
@@ -16,4 +16,4 @@ public:
 };
 
 }
-#endif // TIMERINTERFACE_H
+#endif // TIMERINTERFACE_HPP

@@ -1,5 +1,5 @@
-#ifndef GAMEPADINTERFACESDL2_H
-#define GAMEPADINTERFACESDL2_H
+#ifndef GAMEPADINTERFACESDL2_HPP
+#define GAMEPADINTERFACESDL2_HPP
 
 #include "InputDeviceInterface.hpp"
 #include "SDL_gamecontroller.h"
@@ -24,4 +24,4 @@ private:
 
 } // namespace xpadcar_rpi
 
-#endif // GAMEPADINTERFACESDL2_H
+#endif // GAMEPADINTERFACESDL2_HPP

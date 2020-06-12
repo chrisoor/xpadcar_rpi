@@ -1,5 +1,5 @@
-#ifndef BUTTONSAXISSTATUS_H
-#define BUTTONSAXISSTATUS_H
+#ifndef BUTTONSAXISSTATUS_HPP
+#define BUTTONSAXISSTATUS_HPP
 
 namespace xpadcar_rpi
 {
@@ -50,4 +50,4 @@ struct ButtonsAxisStatus
 
 } //namespace xpadcar_rpi
 
-#endif //BUTTONSAXISSTATUS_H
+#endif //BUTTONSAXISSTATUS_HPP
