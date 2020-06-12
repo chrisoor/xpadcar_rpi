@@ -8,7 +8,7 @@ set (SOURCES
 	src/InputDeviceInterface.hpp
 	src/GamepadInterfaceSDL2.hpp
 	src/GamepadInterfaceSDL2.cpp
-	src/ITimer.hpp
+	src/TimerInterface.hpp
 	src/TimerSDL2.hpp
 	src/TimerSDL2.cpp
 )

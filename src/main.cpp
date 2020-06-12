@@ -4,8 +4,6 @@
 #include "ButtonsAxisStatus.hpp"
 #include "TimerSDL2.hpp"
 #include <string>
-#include "chrono"
-#include "ctime"
 
 int main(int argc, char* argv[])
 {
@@ -13,19 +11,14 @@ int main(int argc, char* argv[])
     (void)argc;
     (void)argv;
 
-	std::cout<<"Hello, world!"<<std::endl;
-
     if (SDL_Init(SDL_INIT_GAMECONTROLLER | SDL_INIT_TIMER) != 0)
     {
         return 1;
     }
     
+    xpadcar_rpi::ButtonsAxisStatus buttonsAxis;
     xpadcar_rpi::GamepadInterfaceSDL2 gamepad;
-    std::cout<<"Is any gamepad connected: "<< gamepad.IsGamepadConnected() <<std::endl;
-
     std::cout<<"Is gamepad opened: "<< gamepad.OpenConnection(0) <<std::endl;
-
-    //SDL_TimerID my_timer_id = SDL_AddTimer(10, tester, nullptr);
 
     xpadcar_rpi::TimerSDL2 timer;
     timer.SetTimeToElapse(250);
@@ -33,7 +26,6 @@ int main(int argc, char* argv[])
 
     int i {0};
     bool result {false};
-    xpadcar_rpi::ButtonsAxisStatus buttonsAxis;
     while(i<15)
     {
         if ( timer.HasElapsedTimePassed() )

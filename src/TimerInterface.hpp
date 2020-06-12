@@ -1,14 +1,14 @@
-#ifndef ITIMER_H
-#define ITIMER_H
+#ifndef TIMERINTERFACE_H
+#define TIMERINTERFACE_H
 
 #include <cstdint>
-#include "SDL_gamecontroller.h"
 namespace xpadcar_rpi
 {
 
-class ITimer
+class TimerInterface
 {
 public:
+    virtual ~TimerInterface() = default;
     virtual void SetTimeToElapse(uint32_t miliSeconds) = 0;
     virtual bool HasElapsedTimePassed() = 0;
     virtual void ResetTimer() = 0;
@@ -16,4 +16,4 @@ public:
 };
 
 }
-#endif // ITIMER_H
+#endif // TIMERINTERFACE_H

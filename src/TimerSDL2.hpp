@@ -1,13 +1,13 @@
 #ifndef TIMERSDL2_H
 #define TIMERSDL2_H
 
-#include "ITimer.hpp"
+#include "TimerInterface.hpp"
 #include "SDL_timer.h"
 
 namespace xpadcar_rpi
 {
 
-class TimerSDL2 : public ITimer
+class TimerSDL2 : public TimerInterface
 {
 public:
     TimerSDL2();
