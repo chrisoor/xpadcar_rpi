@@ -34,9 +34,11 @@ int main(int argc, char* argv[])
         if ( timer.HasElapsedTimePassed() )
         {
             std::cout<<"Time passed! i: "<<i<<std::endl;
+
             result = gamepad.UpdateButtonsAxisStatus(&buttonsAxis);
             std::cout<<"result: "<<result<<std::endl;
-            std::cout<<"rightTrigger: "<<buttonsAxis.rightTrigger<<std::endl;
+            packetShow.SendPacket(&buttonsAxis);
+
             timer.ResetTimer();
             i++;
         }
