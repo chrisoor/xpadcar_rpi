@@ -12,6 +12,7 @@ public:
     virtual ~PacketShowTerminal() = default;
     bool OpenCommDevice() {return true;}
     void CloseCommDevice() {}
+    //this class will show packets on terminal for debug purposes instead of sending them anywhere:
     bool SendPacket(const ButtonsAxisStatus* const buttonsAxis);
 };
 
