@@ -13,7 +13,7 @@ set (SOURCES
 	src/TimerSDL2.cpp
 	src/PacketSenderInterface.hpp
 	src/PacketSenderSerialLinux.hpp
-	src/PacketSenderSerialLinux.hpp
+	src/PacketSenderSerialLinux.cpp
 	src/PacketShowTerminal.hpp
 	src/PacketShowTerminal.cpp
 )

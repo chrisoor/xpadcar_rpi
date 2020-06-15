@@ -11,9 +11,9 @@ class PacketShowTerminal : public PacketSenderInterface
 {
 public:
     virtual ~PacketShowTerminal() = default;
-    bool OpenCommDevice() {return true;}
-    void CloseCommDevice() {}
-    bool SendPacket(const ButtonsAxisStatus* const buttonsAxis);
+    bool OpenCommDevice() override {return true;}
+    void CloseCommDevice() override {}
+    bool SendPacket(const ButtonsAxisStatus* const buttonsAxis) override;
 };
 
 } //namespace xpadcar_rpi

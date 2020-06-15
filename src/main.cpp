@@ -1,10 +1,11 @@
 #include <iostream>
+#include <string>
 #include "SDL.h"
 #include "GamepadInterfaceSDL2.hpp"
 #include "ButtonsAxisStatus.hpp"
 #include "TimerSDL2.hpp"
 #include "PacketShowTerminal.hpp"
-#include <string>
+#include "PacketSenderSerialLinux.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -22,6 +23,7 @@ int main(int argc, char* argv[])
     std::cout<<"Is gamepad opened: "<< gamepad.OpenConnection(0) <<std::endl;
 
     xpadcar_rpi::PacketShowTerminal packetShow;
+    xpadcar_rpi::PacketSenderSerialLinux packetSendSerialLinux;
 
     xpadcar_rpi::TimerSDL2 timer;
     timer.SetTimeToElapse(250);
