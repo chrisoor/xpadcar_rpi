@@ -2,6 +2,8 @@
 #define BUTTONSAXISSTATUS_HPP
 
 #include <cstdint>
+#include <map>
+#include <string>
 
 namespace xpadcar_rpi
 {
@@ -23,7 +25,13 @@ struct ButtonsAxisStatus
                           keyX {false},
                           keyY {false},
                           rightBar {false},
-                          leftBar {false}
+                          leftBar {false},
+                          analogMap { {"rightTrigger", &rightTrigger},
+                                      {"leftTrigger", &leftTrigger}
+                                    },
+                          boolMap { {"keyA", &keyA},
+                                    {"keyB", &keyB}
+                                  }
                           {}
 
     int32_t rightTrigger;
@@ -46,6 +54,9 @@ struct ButtonsAxisStatus
 
     bool rightBar;
     bool leftBar;
+
+    const std::map<const std::string, int32_t* const> analogMap;
+    const std::map<const std::string, bool* const> boolMap;
 };
 
 } //namespace xpadcar_rpi

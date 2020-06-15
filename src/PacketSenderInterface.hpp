@@ -1,10 +1,10 @@
 #ifndef PACKETSENDERINTERFACE_HPP
 #define PACKETSENDERINTERFACE_HPP
 
-#include "ButtonsAxisStatus.hpp"
-
 namespace xpadcar_rpi
 {
+
+struct ButtonsAxisStatus;
 
 class PacketSenderInterface
 {
