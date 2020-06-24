@@ -19,6 +19,12 @@ int main(int argc, char* argv[])
     }
     
     xpadcar_rpi::ButtonsAxisStatus buttonsAxis;
+    buttonsAxis.leftTrigger = 123;
+
+    std::string test1 = buttonsAxis.allowedAxes[0].first;
+    int32_t xpadcar_rpi::ButtonsAxisStatus::* test2 = buttonsAxis.allowedAxes[0].second;
+    std::cout<<test1<<": "<<buttonsAxis.*test2<<std::endl;
+    /*
     xpadcar_rpi::GamepadInterfaceSDL2 gamepad;
     std::cout<<"Is gamepad opened: "<< gamepad.OpenConnection(0) <<std::endl;
 
@@ -49,6 +55,7 @@ int main(int argc, char* argv[])
             timer.Wait(50);
         }
     }
+    */
 	
     SDL_Quit();
 	return 0;

@@ -13,7 +13,7 @@ class MessageMakerStandard : public MessageMakerInterface
 {
 public:
     virtual ~MessageMakerStandard() = default;
-    const string& MakeMessage(const ButtonsAxisStatus& buttonsAxis) const override;
+    const std::string& MakeMessage(const ButtonsAxisStatus& buttonsAxis) const override;
 };
 
 }

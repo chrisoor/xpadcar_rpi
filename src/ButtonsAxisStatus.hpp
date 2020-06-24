@@ -2,6 +2,9 @@
 #define BUTTONSAXISSTATUS_HPP
 
 #include <cstdint>
+#include <vector>
+#include <string>
+#include <utility>
 
 namespace xpadcar_rpi
 {
@@ -28,7 +31,19 @@ struct ButtonsAxisStatus
 
     bool rightBar = false;
     bool leftBar = false;
+
+    std::vector<std::pair<std::string, int32_t ButtonsAxisStatus::*>> allowedAxes {
+                                                                               std::make_pair("rightTrigger", &ButtonsAxisStatus::rightTrigger),
+                                                                               std::make_pair("leftTrigger", &ButtonsAxisStatus::leftTrigger)
+                                                                              };
+
+    std::vector<std::pair<std::string, bool ButtonsAxisStatus::*>> allowedButtons {
+                                                                               std::make_pair("KeyA", &ButtonsAxisStatus::keyA),
+                                                                               std::make_pair("rightBar", &ButtonsAxisStatus::rightBar)
+                                                                              };
 };
+
+
 
 } //namespace xpadcar_rpi
 

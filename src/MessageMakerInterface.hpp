@@ -12,7 +12,7 @@ class MessageMakerInterface
 {
 public:
     virtual ~MessageMakerInterface() = default;
-    virtual const string& MakeMessage(const ButtonsAxisStatus& buttonsAxis) const = 0;
+    virtual const std::string& MakeMessage(const ButtonsAxisStatus& buttonsAxis) const = 0;
 };
 
 }
