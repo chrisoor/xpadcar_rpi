@@ -6,7 +6,7 @@ namespace xpadcar_rpi
 {
 
 class string;
-class ButtonsAxisStatus;
+struct ButtonsAxisStatus;
 
 class MessageMakerInterface
 {
