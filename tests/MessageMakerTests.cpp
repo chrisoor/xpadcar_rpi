@@ -8,10 +8,13 @@ TEST(MessageMakerStandardTests, MakeMessage){
     xpadcar_rpi::ButtonsAxesStatus buttonsAxis {};
     xpadcar_rpi::MessageMaker messageMaker;
 
-    std::string returnedString = messageMaker.MakeMessage(buttonsAxis.testAxes, buttonsAxis.testButtons);
+    std::string returnedString {messageMaker.MakeMessage(buttonsAxis.testAxes, buttonsAxis.testButtons)};
     std::string expectedString {"{[rightTrigger:0][leftTrigger:0][keyA:0]}"};
     EXPECT_EQ(returnedString, expectedString);
 
+    returnedString = messageMaker.MakeMessage(buttonsAxis.testAxesEnum, buttonsAxis.testButtonsEnum);
+    expectedString = "{[0:0][1:0][10:0]}";
+    EXPECT_EQ(returnedString, expectedString);
 
     buttonsAxis.rightTrigger = 10;
     buttonsAxis.leftTrigger = 20;
