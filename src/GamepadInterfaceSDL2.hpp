@@ -2,7 +2,7 @@
 #define GAMEPADINTERFACESDL2_HPP
 
 #include "InputDeviceInterface.hpp"
-#include "SDL_gamecontroller.h"
+#include "SDL2/SDL_gamecontroller.h"
 
 namespace xpadcar_rpi
 {
@@ -16,7 +16,7 @@ public:
     bool IsGamepadConnected() const;
     bool OpenConnection(const uint8_t deviceId) override;
     void CloseConnection() override;
-    bool UpdateButtonsAxisStatus(ButtonsAxisStatus* const pButtonsAxis) override;
+    bool UpdateButtonsAxisStatus(ButtonsAxesStatus* const pButtonsAxes) override;
 
 private:
     SDL_GameController *pController;

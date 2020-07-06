@@ -4,10 +4,10 @@
 namespace xpadcar_rpi
 {
 
-bool PacketShowTerminal::SendPacket(const ButtonsAxisStatus* const buttonsAxis)
+bool PacketShowTerminal::SendPacket(const ButtonsAxesStatus* const buttonsAxes)
 {
     // (void)buttonsAxis;
-    std::cout<<"rightTrigger: "<<buttonsAxis->rightTrigger<<std::endl;
+    std::cout<<"rightTrigger: "<<buttonsAxes->rightTrigger<<std::endl;
 
     return true;
 }

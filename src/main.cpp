@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
-#include "SDL.h"
+#include "SDL2/SDL.h"
 #include "GamepadInterfaceSDL2.hpp"
-#include "ButtonsAxisStatus.hpp"
+#include "ButtonsAxesStatus.hpp"
 #include "TimerSDL2.hpp"
 #include "PacketShowTerminal.hpp"
 #include "PacketSenderSerialLinux.hpp"
+#include "MessageMaker.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -18,12 +19,13 @@ int main(int argc, char* argv[])
         return 1;
     }
     
-    xpadcar_rpi::ButtonsAxisStatus buttonsAxis;
-    buttonsAxis.leftTrigger = 123;
+    xpadcar_rpi::ButtonsAxesStatus buttonsAxes;
+    buttonsAxes.leftTrigger = 123;
+    buttonsAxes.rightTrigger = 12;
+    buttonsAxes.keyA = false;
 
-    std::string test1 = buttonsAxis.allowedAxes[0].first;
-    int32_t xpadcar_rpi::ButtonsAxisStatus::* test2 = buttonsAxis.allowedAxes[0].second;
-    std::cout<<test1<<": "<<buttonsAxis.*test2<<std::endl;
+    xpadcar_rpi::MessageMaker messageMaker;
+    std::cout<<messageMaker.MakeMessage(buttonsAxes.testAxes, buttonsAxes.testButtons)<<std::endl;
     /*
     xpadcar_rpi::GamepadInterfaceSDL2 gamepad;
     std::cout<<"Is gamepad opened: "<< gamepad.OpenConnection(0) <<std::endl;

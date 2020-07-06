@@ -4,10 +4,11 @@ project(xpadcar_rpi)
 
 set (SOURCES
 	src/main.cpp
-	src/ButtonsAxisStatus.hpp
+	src/ButtonsAxesStatus.hpp
 	src/InputDeviceInterface.hpp
 	src/GamepadInterfaceSDL2.hpp
 	src/GamepadInterfaceSDL2.cpp
+	src/MessageMaker.hpp
 	src/TimerInterface.hpp
 	src/TimerSDL2.hpp
 	src/TimerSDL2.cpp
@@ -30,3 +31,9 @@ if(MSVC)
 else()
   target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -Werror)
 endif()
+
+set(TURN_ON_TESTING TRUE)
+if(${TURN_ON_TESTING})
+	enable_testing()
+	add_subdirectory(tests)
+endif(${TURN_ON_TESTING})

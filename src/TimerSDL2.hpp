@@ -2,7 +2,7 @@
 #define TIMERSDL2_HPP
 
 #include "TimerInterface.hpp"
-#include "SDL_timer.h"
+#include "SDL2/SDL_timer.h"
 
 namespace xpadcar_rpi
 {

@@ -13,7 +13,7 @@ public:
     virtual ~PacketShowTerminal() = default;
     bool OpenCommDevice() override {return true;}
     void CloseCommDevice() override {}
-    bool SendPacket(const ButtonsAxisStatus* const buttonsAxis) override;
+    bool SendPacket(const ButtonsAxesStatus* const buttonsAxes) override;
 };
 
 } //namespace xpadcar_rpi
