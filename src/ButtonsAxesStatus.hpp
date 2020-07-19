@@ -23,15 +23,11 @@ struct ButtonsAxesStatus
     int32_t rightTrigger = 0;
     int32_t leftTrigger = 0;
 
-    int32_t leftStickUp = 0;
-    int32_t leftStickDown = 0;
-    int32_t leftStickRight = 0;
-    int32_t leftStickLeft = 0;
+    int32_t rightStickX = 0;
+    int32_t rightStickY = 0;
 
-    int32_t rightStickUp = 0;
-    int32_t rightStickDown = 0;
-    int32_t rightStickRight = 0;
-    int32_t rightStickLeft = 0;
+    int32_t leftStickX = 0;
+    int32_t leftStickY = 0;
 
     bool keyA = false;
     bool keyB = false;

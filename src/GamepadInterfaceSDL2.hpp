@@ -19,6 +19,8 @@ public:
     bool UpdateButtonsAxisStatus(ButtonsAxesStatus* const pButtonsAxes) override;
 
 private:
+    int32_t NormalizeTriggerValue(int32_t triggerValue);
+
     SDL_GameController *pController;
 };
 

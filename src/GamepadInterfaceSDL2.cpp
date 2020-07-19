@@ -65,12 +65,22 @@ bool GamepadInterfaceSDL2::UpdateButtonsAxisStatus(ButtonsAxesStatus* const pBut
     }
 
     SDL_GameControllerUpdate();
-    pButtonsAxes->rightTrigger = static_cast<int32_t>(SDL_GameControllerGetAxis(pController, SDL_CONTROLLER_AXIS_TRIGGERRIGHT));
-    pButtonsAxes->leftTrigger = static_cast<int32_t>(SDL_GameControllerGetAxis(pController, SDL_CONTROLLER_AXIS_TRIGGERLEFT));
+    pButtonsAxes->rightTrigger = NormalizeTriggerValue(static_cast<int32_t>(SDL_GameControllerGetAxis(pController, SDL_CONTROLLER_AXIS_TRIGGERRIGHT)));
+    pButtonsAxes->leftTrigger = NormalizeTriggerValue(static_cast<int32_t>(SDL_GameControllerGetAxis(pController, SDL_CONTROLLER_AXIS_TRIGGERLEFT)));
+    pButtonsAxes->keyA = static_cast<bool>(SDL_GameControllerGetButton(pController, SDL_CONTROLLER_BUTTON_A));
 
     result = SDL_GameControllerGetAttached(pController);
 
     return result;
+}
+
+int32_t GamepadInterfaceSDL2::NormalizeTriggerValue(int32_t triggerValue)
+{
+    int32_t returnValue {0};
+
+    returnValue = static_cast<int32_t>(100 * triggerValue / 32767);
+
+    return returnValue;
 }
 
 } // namespace xpadcar_rpi
