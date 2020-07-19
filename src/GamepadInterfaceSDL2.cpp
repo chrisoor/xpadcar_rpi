@@ -32,18 +32,16 @@ bool GamepadInterfaceSDL2::IsGamepadConnected() const
 
 bool GamepadInterfaceSDL2::OpenConnection(const uint8_t deviceId)
 {
-    bool result {false};
-
     if (SDL_IsGameController(deviceId) == true)
     {
         pController = SDL_GameControllerOpen(deviceId);
         if (pController != nullptr)
         {
-            result = true;
+            return true;
         }
     }
 
-    return result;
+    return false;
 }
 
 void GamepadInterfaceSDL2::CloseConnection()

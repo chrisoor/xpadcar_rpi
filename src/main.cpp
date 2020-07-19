@@ -20,39 +20,40 @@ int main(int argc, char* argv[])
     }
     
     xpadcar_rpi::ButtonsAxesStatus buttonsAxes;
-    buttonsAxes.leftTrigger = 123;
-    buttonsAxes.rightTrigger = 12;
-    buttonsAxes.keyA = false;
-
     xpadcar_rpi::MessageMaker messageMaker;
-    std::cout<<messageMaker.MakeMessage(buttonsAxes.testAxes, buttonsAxes.testButtons)<<std::endl;
 
     xpadcar_rpi::PacketSenderSerialPosix packetSender;
-    packetSender.OpenCommDevice("/dev/ttyUSB0");
-    packetSender.SendPacket("test1234");
-    packetSender.CloseCommDevice();
-    /*
+    if (packetSender.OpenCommDevice("/dev/ttyUSB0") == false)
+    {
+        return 1;
+    }
+    
     xpadcar_rpi::GamepadInterfaceSDL2 gamepad;
-    std::cout<<"Is gamepad opened: "<< gamepad.OpenConnection(0) <<std::endl;
-
-    xpadcar_rpi::PacketShowTerminal packetShow;
-    xpadcar_rpi::PacketSenderSerialLinux packetSendSerialLinux;
+    if (gamepad.OpenConnection(0) == false)
+    {
+        return 1;
+    }
 
     xpadcar_rpi::TimerSDL2 timer;
     timer.SetTimeToElapse(250);
     timer.ResetTimer();
 
     int i {0};
-    bool result {false};
-    while(i<15)
+    std::string messageToSend {};
+    while(i<25)
     {
         if ( timer.HasElapsedTimePassed() )
         {
             std::cout<<"Time passed! i: "<<i<<std::endl;
 
-            result = gamepad.UpdateButtonsAxisStatus(&buttonsAxis);
-            std::cout<<"result: "<<result<<std::endl;
-            packetShow.SendPacket(&buttonsAxis);
+            if (gamepad.UpdateButtonsAxisStatus(&buttonsAxes) == false)
+            {
+                return 1;
+            }
+
+            messageToSend = messageMaker.MakeMessage(buttonsAxes.testAxes, buttonsAxes.testButtons);
+            packetSender.SendPacket(messageToSend);
+            packetSender.SendPacket("\n\r");
 
             timer.ResetTimer();
             i++;
@@ -62,8 +63,9 @@ int main(int argc, char* argv[])
             timer.Wait(50);
         }
     }
-    */
-	
+
+    packetSender.CloseCommDevice();	
     SDL_Quit();
+
 	return 0;
 }
