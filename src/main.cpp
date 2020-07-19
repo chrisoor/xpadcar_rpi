@@ -5,7 +5,7 @@
 #include "ButtonsAxesStatus.hpp"
 #include "TimerSDL2.hpp"
 #include "PacketShowTerminal.hpp"
-#include "PacketSenderSerialLinux.hpp"
+#include "PacketSenderSerialPosix.hpp"
 #include "MessageMaker.hpp"
 
 int main(int argc, char* argv[])
@@ -26,6 +26,11 @@ int main(int argc, char* argv[])
 
     xpadcar_rpi::MessageMaker messageMaker;
     std::cout<<messageMaker.MakeMessage(buttonsAxes.testAxes, buttonsAxes.testButtons)<<std::endl;
+
+    xpadcar_rpi::PacketSenderSerialPosix packetSender;
+    packetSender.OpenCommDevice("/dev/ttyUSB0");
+    packetSender.SendPacket("test1234");
+    packetSender.CloseCommDevice();
     /*
     xpadcar_rpi::GamepadInterfaceSDL2 gamepad;
     std::cout<<"Is gamepad opened: "<< gamepad.OpenConnection(0) <<std::endl;

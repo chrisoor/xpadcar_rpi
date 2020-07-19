@@ -1,7 +1,7 @@
 #ifndef PACKETSENDERINTERFACE_HPP
 #define PACKETSENDERINTERFACE_HPP
 
-#include "ButtonsAxesStatus.hpp"
+#include <string>
 
 namespace xpadcar_rpi
 {
@@ -10,9 +10,9 @@ class PacketSenderInterface
 {
 public:
     virtual ~PacketSenderInterface() = default;
-    virtual bool OpenCommDevice() = 0;
+    virtual bool OpenCommDevice(const std::string& deviceName) = 0;
     virtual void CloseCommDevice() = 0;
-    virtual bool SendPacket(const ButtonsAxesStatus* const buttonsAxes) = 0;
+    virtual bool SendPacket(const std::string& packet) = 0;
 };
 
 } // namespace xpadcar_rpi
