@@ -10,9 +10,9 @@ while [ $i -lt 15 ]
 do
 	GAMEPAD_FILE=/dev/input/js0
 	if test -e "$GAMEPAD_FILE"; then
-		echo "Gampead should be connected"
+		logger Gampead connected
 	else
-		echo "Gamepad not connected"
+		logger Gamepad not connected
 	fi
 
 	i=$[$i+1]
