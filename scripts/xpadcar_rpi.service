@@ -1,5 +1,6 @@
 [Unit]
 Description=xpadcar service
+Restart=always
 
 [Service]
 ExecStart=/home/pi/xpadcar_rpi/scripts/connect_pad_and_run.sh
