@@ -44,8 +44,6 @@ int main(int argc, char* argv[])
     {
         if ( timer.HasElapsedTimePassed() )
         {
-            std::cout<<"Time passed! i: "<<i<<std::endl;
-
             if (gamepad.UpdateButtonsAxisStatus(&buttonsAxes) == false)
             {
                 return 1;
