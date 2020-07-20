@@ -51,6 +51,11 @@ int main(int argc, char* argv[])
                 return 1;
             }
 
+            if (buttonsAxes.keyY == true)
+            {
+                break;
+            }
+
             messageToSend = messageMaker.MakeMessage(buttonsAxes.testAxes, buttonsAxes.testButtons);
             packetSender.SendPacket(messageToSend);
             packetSender.SendPacket("\n\r");
