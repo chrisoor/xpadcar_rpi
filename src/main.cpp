@@ -38,9 +38,9 @@ int main(int argc, char* argv[])
     timer.SetTimeToElapse(250);
     timer.ResetTimer();
 
-    int i {0};
+    // int i {0};
     std::string messageToSend {};
-    while(i<25)
+    while(true)
     {
         if ( timer.HasElapsedTimePassed() )
         {
@@ -59,7 +59,7 @@ int main(int argc, char* argv[])
             packetSender.SendPacket("\n\r");
 
             timer.ResetTimer();
-            i++;
+            // i++;
         }
         else
         {
