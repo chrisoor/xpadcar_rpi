@@ -68,6 +68,7 @@ bool GamepadInterfaceSDL2::UpdateButtonsAxisStatus(ButtonsAxesStatus* const pBut
     pButtonsAxes->rightTrigger = NormalizeTriggerValue(static_cast<int32_t>(SDL_GameControllerGetAxis(pController, SDL_CONTROLLER_AXIS_TRIGGERRIGHT)));
     pButtonsAxes->leftTrigger = NormalizeTriggerValue(static_cast<int32_t>(SDL_GameControllerGetAxis(pController, SDL_CONTROLLER_AXIS_TRIGGERLEFT)));
     pButtonsAxes->keyA = static_cast<bool>(SDL_GameControllerGetButton(pController, SDL_CONTROLLER_BUTTON_A));
+    pButtonsAxes->keyY = static_cast<bool>(SDL_GameControllerGetButton(pController, SDL_CONTROLLER_BUTTON_Y));
 
     result = SDL_GameControllerGetAttached(pController);
 
