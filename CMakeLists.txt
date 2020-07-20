@@ -32,7 +32,7 @@ else()
   target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -Werror)
 endif()
 
-set(TURN_ON_TESTING TRUE)
+set(TURN_ON_TESTING FALSE)
 if(${TURN_ON_TESTING})
 	enable_testing()
 	add_subdirectory(tests)
