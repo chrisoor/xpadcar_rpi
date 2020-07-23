@@ -39,9 +39,12 @@ if [ "$READY_TO_RUN" == "1" ]; then
 	logger Program started
 	if [ "$RETURN_VALUE" == "0" ]; then
 		logger Program ended succesfully
+		exit 0
 	else
 		logger Program ended with failure
+		exit 1
 	fi
 else
 	logger Program did not start
+	exit 1
 fi
