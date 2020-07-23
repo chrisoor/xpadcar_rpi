@@ -34,8 +34,8 @@ do
 done
 
 if [ "$READY_TO_RUN" == "1" ]; then
-	RETURN_VALUE=$(/home/pi/xpadcar_rpi/build/xpadcar_rpi)
-	echo $RETURN_VALUE
+	/home/pi/xpadcar_rpi/build/xpadcar_rpi
+	RETURN_VALUE=$?
 	logger Program started
 	if [ "$RETURN_VALUE" == "0" ]; then
 		logger Program ended succesfully
