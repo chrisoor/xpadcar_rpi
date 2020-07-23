@@ -17,6 +17,7 @@ do
 		logger Gampead connected
 	else
 		logger Gamepad not connected
+		sleep 1
 		continue
 	fi
 
