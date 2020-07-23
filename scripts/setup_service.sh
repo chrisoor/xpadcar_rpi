@@ -10,8 +10,8 @@ cp /home/pi/xpadcar_rpi/scripts/xpadcar_rpi.service /etc/systemd/system/
 systemctl daemon-reload
 
 #enable service, so it is started on system startup
-#systemctl enable xpadcar_rpi
+systemctl enable xpadcar_rpi
 
 #start the service immediatelly
-systemctl start xpadcar_rpi
+# systemctl start xpadcar_rpi
 
