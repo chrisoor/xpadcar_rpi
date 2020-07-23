@@ -3,7 +3,7 @@
 #C8:3F:26:A9:D2:6D
 #Device C8:3F:26:A9:D2:6D Xbox Wireless Controller
 
-su -c ~/xpadcar_rpi/scripts/disable_ertm.sh
+su -c /home/pi/xpadcar_rpi/scripts/disable_ertm.sh
 
 i="0"
 READY_TO_RUN="0"
